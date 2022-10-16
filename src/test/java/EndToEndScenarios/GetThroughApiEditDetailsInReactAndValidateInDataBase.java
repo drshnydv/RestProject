@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import POM.Login;
 import Utilities.BaseClass;
 import Utilities.DataBaseUtility;
 import Utilities.EndPointsLibrary;
@@ -47,11 +48,9 @@ public class GetThroughApiEditDetailsInReactAndValidateInDataBase extends BaseCl
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		driver.findElement(By.id("usernmae")).sendKeys(IConstants.REACTAPP_USERNAME);
+		Login login = new Login(driver);
 		
-		driver.findElement(By.id("inputPassword")).sendKeys(IConstants.REACTAPP_PASSWORD);
-		
-		driver.findElement(By.xpath("//button[text()='Sign in']")).click();
+		login.login(IConstants.REACTAPP_USERNAME, IConstants.REACTAPP_PASSWORD);
 		
 		driver.findElement(By.xpath("//li/a[text()='Projects']")).click();
 		
