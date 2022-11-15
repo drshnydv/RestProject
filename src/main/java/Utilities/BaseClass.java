@@ -41,6 +41,8 @@ public class BaseClass{
 		WebDriverManager.chromedriver().setup();
 	    driver = new ChromeDriver();
 	    
+	    driver.manage().window().maximize();
+	    
 	    driver.get(IConstants.REACTAPP_URL);
 			
 		RequestSpecBuilder req = new RequestSpecBuilder();
