@@ -126,7 +126,6 @@ public class Projects {
 	
 	public void clickDeleteInPopUP() {
 		
-		getPopUpDeleteBtn().clear();
 		getPopUpDeleteBtn().click();
 		
 	}

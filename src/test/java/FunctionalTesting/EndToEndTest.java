@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Utilities.DataBaseUtility;
@@ -18,6 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+@Listeners(Utilities.ListnersClass.class)
 public class EndToEndTest {
 	
 	String projectName = "EndToEnd";
@@ -65,7 +67,7 @@ public class EndToEndTest {
 		
 		driver.findElement(By.xpath("//button[text()='Sign in']")).click();
 		
-		driver.findElement(By.xpath("//li/a[text()='Projects']")).click();
+		driver.findElement(By.xpath("//li/a[text()='Project']")).click();
 		
 		List<WebElement> proId = driver.findElements(By.xpath("//tbody/tr/td[1]"));
 		

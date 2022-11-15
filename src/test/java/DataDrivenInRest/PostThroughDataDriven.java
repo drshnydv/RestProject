@@ -3,7 +3,7 @@ package DataDrivenInRest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import PojoUtiity.postThroughPojo;
+import PojoUtiity.PostThroughPojo;
 import Utilities.ExcelUtility;
 import io.restassured.http.ContentType;
 
@@ -16,7 +16,7 @@ public class PostThroughDataDriven {
 	@Test(dataProvider = "mulitipleData")
 	public void postThroughDataProvider(String createdBy, String projectName, String status, int teamSize) {
 		
-		postThroughPojo p = new postThroughPojo(createdBy, projectName, status, teamSize);
+		PostThroughPojo p = new PostThroughPojo(createdBy, projectName, status, teamSize);
 		
 		baseURI = "http://localhost";
 		port = 8084;
@@ -68,16 +68,6 @@ public class PostThroughDataDriven {
 		a[1][1] = projectName1+r;
 		a[1][2] = status1;
 		a[1][3] = teamsize1;
-		
-		for(int i = 0; i < 5; i++) {
-		
-			for(int j = 0; j < 4; j++) {
-				
-				a[i][j] = e.getExcelData("Data1", i, j);
-				
-			}
-			
-		}
 		
 		return a;
 		

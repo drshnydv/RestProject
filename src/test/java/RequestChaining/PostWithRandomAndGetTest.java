@@ -1,13 +1,11 @@
 package RequestChaining;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.port;
+import static io.restassured.RestAssured.*;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import PojoUtiity.postThroughPojo;
+import PojoUtiity.PostThroughPojo;
 import Utilities.JavaUtility;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -26,7 +24,7 @@ public class PostWithRandomAndGetTest {
 		baseURI = "http://localhost";
 		port = 8084;
 
-		postThroughPojo po = new postThroughPojo("drshn", "Tyss__"+ran, "Created", 8);
+		PostThroughPojo po = new PostThroughPojo("drshn", "Tyss__"+ran, "Created", 8);
 
 		 Response res = given()
 		.body(po)

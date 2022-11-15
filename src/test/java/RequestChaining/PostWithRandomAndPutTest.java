@@ -4,7 +4,7 @@ import static io.restassured.RestAssured.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import PojoUtiity.postThroughPojo;
+import PojoUtiity.PostThroughPojo;
 import Utilities.JavaUtility;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -22,7 +22,7 @@ public class PostWithRandomAndPutTest {
 		baseURI = "http://localhost";
 		port = 8084;
 
-		postThroughPojo po = new postThroughPojo("Drshn", "Ty"+ran , "Active", 8);
+		PostThroughPojo po = new PostThroughPojo("Drshn", "Ty"+ran , "Active", 8);
 
 		 Response res = given()
 		.body(po)
@@ -39,7 +39,7 @@ public class PostWithRandomAndPutTest {
 		
 		Assert.assertEquals(actData, 201);
 		
-		postThroughPojo jo = new postThroughPojo("DarshanYadav", Name+ran , "InActive", 4);
+		PostThroughPojo jo = new PostThroughPojo("DarshanYadav", Name+ran , "InActive", 4);
 		
 		Response resp = given()
 				.body(jo)

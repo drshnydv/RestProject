@@ -1,13 +1,13 @@
 package PojoUtiity;
 
-public class postThroughPojo {
+public class PostThroughPojo {
 	
 	String createdBy;
 	String projectName;
 	String status;
 	int teamSize;
 	
-	public postThroughPojo(String createdBy, String projectName, String status, int teamSize2) {
+	public PostThroughPojo(String createdBy, String projectName, String status, int teamSize2) {
 		super();
 		this.createdBy = createdBy;
 		this.projectName = projectName;

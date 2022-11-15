@@ -13,7 +13,7 @@ public class Home {
 		
 	}
 	
-	@FindBy(xpath = "//li/a[text()='Project']")
+	@FindBy(xpath = "//li/a[text()='Projects']")
 	private WebElement projecrBtn;
 
 	public WebElement getProjecrBtn() {

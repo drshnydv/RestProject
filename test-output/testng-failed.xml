@@ -3,12 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Authentication.AuthenticationTest">
+      <class name="EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest">
         <methods>
-          <include name="premitiveAuth"/>
-          <include name="digestiveAuth"/>
+          <include name="test"/>
+          <include name="asConfig"/>
+          <include name="bsConfig"/>
+          <include name="acConfig"/>
+          <include name="bcConfig"/>
         </methods>
-      </class> <!-- Authentication.AuthenticationTest -->
+      </class> <!-- EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

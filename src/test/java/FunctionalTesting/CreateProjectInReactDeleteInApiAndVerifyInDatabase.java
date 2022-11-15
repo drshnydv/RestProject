@@ -6,28 +6,26 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import Utilities.BaseClass;
 import Utilities.DataBaseUtility;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class CreateProjectInReactDeleteInApiAndVerifyInDatabase {
+
+@Listeners(Utilities.ListnersClass.class)
+public class CreateProjectInReactDeleteInApiAndVerifyInDatabase extends BaseClass {
 	
 	String projectId;
 	
 	@Test
 	public void createProjectInReact() throws InterruptedException {
 		
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		
 		driver.get("http://localhost:8084");
 		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		driver.findElement(By.id("usernmae")).sendKeys("rmgyantra");
 		
@@ -46,7 +44,7 @@ public class CreateProjectInReactDeleteInApiAndVerifyInDatabase {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].value='5'", textbox);
 		
-		driver.findElement(By.name("createdBy")).sendKeys("Drshn");
+		driver.findElement(By.name("creaedBy")).sendKeys("Drshn");
 		
 		WebElement dropDown = driver.findElement(By.xpath("//label[text()='Project Status ']/following-sibling::select[@class='form-control']"));
 		

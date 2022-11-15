@@ -2,16 +2,32 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-14T11:37:39 IST" name="Default suite" finished-at="2022-10-14T11:37:43 IST" duration-ms="4347">
+  <suite started-at="2022-11-15T20:27:24 IST" name="Default suite" finished-at="2022-11-15T20:27:37 IST" duration-ms="13002">
     <groups>
     </groups>
-    <test started-at="2022-10-14T11:37:39 IST" name="Default test" finished-at="2022-10-14T11:37:43 IST" duration-ms="4347">
-      <class name="Authentication.AuthenticationTest">
-        <test-method signature="premitiveAuth()[pri:0, instance:Authentication.AuthenticationTest@6a84a97d]" started-at="2022-10-14T11:37:39 IST" name="premitiveAuth" finished-at="2022-10-14T11:37:43 IST" duration-ms="4269" status="PASS">
+    <test started-at="2022-11-15T20:27:24 IST" name="Default test" finished-at="2022-11-15T20:27:37 IST" duration-ms="13002">
+      <class name="EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest">
+        <test-method is-config="true" signature="bsConfig()[pri:0, instance:EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest@2c35e847]" started-at="2022-11-15T20:27:24 IST" name="bsConfig" finished-at="2022-11-15T20:27:24 IST" duration-ms="397" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- premitiveAuth -->
-      </class> <!-- Authentication.AuthenticationTest -->
+        </test-method> <!-- bsConfig -->
+        <test-method is-config="true" signature="bcConfig()[pri:0, instance:EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest@2c35e847]" started-at="2022-11-15T20:27:24 IST" name="bcConfig" finished-at="2022-11-15T20:27:33 IST" duration-ms="9225" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bcConfig -->
+        <test-method signature="test()[pri:0, instance:EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest@2c35e847]" started-at="2022-11-15T20:27:33 IST" name="test" finished-at="2022-11-15T20:27:37 IST" duration-ms="3558" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method is-config="true" signature="acConfig()[pri:0, instance:EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest@2c35e847]" started-at="2022-11-15T20:27:37 IST" name="acConfig" finished-at="2022-11-15T20:27:37 IST" duration-ms="133" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- acConfig -->
+        <test-method is-config="true" signature="asConfig()[pri:0, instance:EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest@2c35e847]" started-at="2022-11-15T20:27:37 IST" name="asConfig" finished-at="2022-11-15T20:27:37 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- asConfig -->
+      </class> <!-- EndToEndScenarios.CreateProjectInReactDeleteInApiAndVerifyInDataBaseTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

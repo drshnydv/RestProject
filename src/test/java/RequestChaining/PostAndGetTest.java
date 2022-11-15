@@ -5,7 +5,7 @@ import static io.restassured.RestAssured.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import PojoUtiity.postThroughPojo;
+import PojoUtiity.PostThroughPojo;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -19,7 +19,7 @@ public class PostAndGetTest {
 		baseURI = "http://localhost";
 		port = 8084;
 
-		postThroughPojo po = new postThroughPojo("drshn", "id1234", "Active", 8);
+		PostThroughPojo po = new PostThroughPojo("drshn", "id1234", "Active", 8);
 
 		 Response res = given()
 		.body(po)

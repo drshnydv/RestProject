@@ -20,16 +20,16 @@ import Utilities.IConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.response.Response;
 
-public class GetThroughApiEditDetailsInReactAndValidateInDataBase extends BaseClass{
+public class GetThroughApiEditDetailsInReactAndValidateInDataBaseTest extends BaseClass { 
 	
 	@Test
-	public void getEditAndVerify() throws Throwable {
+	public void test() throws Throwable {
 		
 		String proId = "TY_PROJ_3402";
 		
 		String newName = "GOOGLE";
 		
-		//get project through API
+		//getprojectthroughAPI
 		
 		Response res = when()
 		.get(EndPointsLibrary.getSingleProject+proId);

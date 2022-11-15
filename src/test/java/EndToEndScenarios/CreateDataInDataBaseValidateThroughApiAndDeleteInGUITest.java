@@ -1,5 +1,6 @@
 package EndToEndScenarios;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import POM.Home;
@@ -9,33 +10,27 @@ import POM.Projects;
 import static io.restassured.RestAssured.*;
 
 import java.util.concurrent.TimeUnit;
-
 import Utilities.BaseClass;
-import Utilities.DataBaseUtility;
 import Utilities.EndPointsLibrary;
-import Utilities.ExcelUtility;
 import Utilities.IConstants;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.response.Response;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class CreateDataInDataBaseValidateThroughApiAndDeleteInGui extends BaseClass{
+@Listeners(Utilities.ListnersClass.class)
+public class CreateDataInDataBaseValidateThroughApiAndDeleteInGUITest extends BaseClass {
 
+	String query;
+	String query1;
+	String proId ;
+	int statusCode;
 
 	@Test
-	public void createValidateAndDelete() throws Throwable {
+	public void test() throws Throwable {
 
-		//creating project in DataBase
-		
-		DataBaseUtility dLib = new DataBaseUtility();
-		ExcelUtility eLib = new ExcelUtility();
-		
-		String proId = eLib.getExcelData("EndToEnd", 4, 0);
+		//creatingProjectInDataBase
+
+		proId = eLib.getExcelData("EndToEnd", 4, 0)+jLib.RandomNumber();
 		String createdBy = eLib.getExcelData("EndToEnd", 4, 1);
 		String CreatedDate = eLib.getExcelData("EndToEnd", 4, 2);
 		String proName = eLib.getExcelData("EndToEnd", 4, 3);
@@ -43,60 +38,51 @@ public class CreateDataInDataBaseValidateThroughApiAndDeleteInGui extends BaseCl
 		String teamsize = eLib.getExcelData("EndToEnd", 4, 5);
 		int teamSize = Integer.valueOf(teamsize);
 		String statuscode = eLib.getExcelData("EndToEnd", 1, 5);
-		int statusCode = Integer.valueOf(statuscode);
-		
-		dLib.connectDb();
+		statusCode = Integer.valueOf(statuscode);
 
-		String query = "INSERT INTO project VALUES( '"+proId+"' , '"+createdBy+"', '"+CreatedDate+"', '"+proName+"', '"+status+"', '"+teamSize+"')";
+		query = "INSERT INTO project VALUES( '"+proId+"' , '"+createdBy+"', '"+CreatedDate+"', '"+proName+"', '"+status+"', '"+teamSize+"')";
 
 		dLib.updateQuery(query);
-		
-		String query1 = "select * from project";
-		
-		dLib.executeQueryAndValidate(query1, 4, "TYSS9876");
-		
+
+		query1 = "select * from project";
+
+		dLib.executeQueryAndValidate(query1, 1, proId);
+
 		System.out.println("Project Created In DataBase");
-		
-		//validating project created or not through Api
-		
-		baseURI = "http://localhost";
-		port = 8084;
-		
-		Response res = when()
-		.get(EndPointsLibrary.getSingleProject+proId);
-		
+
+		//validatingProjectThroughApi
+
+		Response res = given().spec(requestSpec)
+
+				.when()
+				.get(EndPointsLibrary.getSingleProject+proId);
+
 		int code = res.getStatusCode();
-		
+
+		res.getBody();
+
 		Assert.assertEquals(code, statusCode);
-		
+
 		System.out.println("Project Verified Through API");
-		
-		
-		//delete project in ReactApp
-		
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		
+
+		//deleteProjectInReactApp
+
 		Login login = new Login(driver);
 		Home home = new Home(driver);
 		Projects project = new Projects(driver);
-		
-		driver.get("http://localhost:8084");
-		
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
+
 		login.login(IConstants.REACTAPP_USERNAME, IConstants.REACTAPP_PASSWORD);
-		
+
 		home.getProjects();
-	
+
 		project.deleteProjectThroughProjectId(driver, proId);
-		
+
 		project.clickDeleteInPopUP();
-		
-		driver.close();
-		
+
 		System.out.println("Project Deleted");
-		
+
 	}
 
 }
